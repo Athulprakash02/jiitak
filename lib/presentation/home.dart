@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:jiitak/core/constants.dart';
+import 'package:jiitak/presentation/stamp_details.dart';
 
 import 'widgets/days_tab.dart';
 import 'widgets/home_page_main_card.dart';
 
 class HomeScreen extends StatelessWidget {
-   HomeScreen({super.key});
-
- 
+  HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +61,8 @@ class HomeScreen extends StatelessWidget {
       ),
       body: SafeArea(
           child: SingleChildScrollView(
-            child: Column(
-                  children: [
+        child: Column(
+          children: [
             const SizedBox(
               height: 10,
             ),
@@ -81,25 +80,34 @@ class HomeScreen extends StatelessWidget {
             ),
             SizedBox(
               width: size.width,
-              height: size.height*.7,
+              height: size.height * .7,
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: 6,
                 itemBuilder: (context, index) {
-                  return HomePageMainCard(size: size,index: index,);
+                  return HomePageMainCard(
+                    size: size,
+                    index: index,
+                  );
                 },
               ),
             ),
-            
-                  ],
-                ),
-          )),
+          ],
+        ),
+      )),
       floatingActionButton: FloatingActionButton(
         backgroundColor: kWhiteColor,
         onPressed: () {
-        
-      },child: Icon(Icons.location_on_outlined,color: kBlackColor,size: 30,),),
-     
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => StampDetailsScreen(),
+          ));
+        },
+        child: Icon(
+          Icons.location_on_outlined,
+          color: kBlackColor,
+          size: 30,
+        ),
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:jiitak/core/constants.dart';
 import 'package:jiitak/presentation/home.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
@@ -18,13 +19,13 @@ class BottomNavBar extends StatelessWidget {
           icon: const Icon(Icons.search),
           title: ("さがす"),
           activeColorPrimary: Color(0xFFFAAA14),
-          inactiveColorPrimary: Colors.grey,
+          inactiveColorPrimary: kBlackColor,
         ), PersistentBottomNavBarItem(
           icon: const Icon(Icons.business_center_outlined
           ),
           title: ("お仕事"),
           activeColorPrimary: Color(0xFFFAAA14),
-          inactiveColorPrimary: Colors.grey,
+          inactiveColorPrimary: kBlackColor,
         ),
 
         PersistentBottomNavBarItem(
@@ -38,19 +39,19 @@ class BottomNavBar extends StatelessWidget {
           ),
           
           activeColorPrimary:Color(0xFFFAAA14),
-          inactiveColorPrimary: Colors.grey,
+          inactiveColorPrimary: kBlackColor,
         ),
 
         PersistentBottomNavBarItem(
           icon: const Icon(Icons.chat_bubble_outline),
           title: ("チャット"),
           activeColorPrimary: Color(0xFFFAAA14),
-          inactiveColorPrimary: Colors.grey,
+          inactiveColorPrimary:kBlackColor,
         ),PersistentBottomNavBarItem(
           icon: const Icon(Icons.person_2_outlined),
           title: ("マイページ"),
           activeColorPrimary: Color(0xFFFAAA14),
-          inactiveColorPrimary: Colors.grey,
+          inactiveColorPrimary: kBlackColor,
         ),
 
       ];
