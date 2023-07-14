@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:jiitak/application/controllers/favourite_controller.dart';
 import 'package:jiitak/core/constants.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import 'widgets/days_tab.dart';
 import 'widgets/home_page_main_card.dart';
@@ -64,35 +61,39 @@ class HomeScreen extends StatelessWidget {
             )),
       ),
       body: SafeArea(
-          child: ListView(
-        children: [
-          const SizedBox(
-            height: 10,
-          ),
-          SizedBox(
-            width: size.width,
-            height: 90,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: days.length,
-              itemBuilder: (context, index) {
-                return DaysTab(index: index);
-              },
+          child: SingleChildScrollView(
+            child: Column(
+                  children: [
+            const SizedBox(
+              height: 10,
             ),
-          ),
-          SizedBox(
-            width: size.width,
-            height: size.height*.7,
-            child: ListView.builder(
-              itemCount: 6,
-              itemBuilder: (context, index) {
-                return HomePageMainCard(size: size,index: index,);
-              },
+            SizedBox(
+              width: size.width,
+              height: 90,
+              child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: days.length,
+                itemBuilder: (context, index) {
+                  return DaysTab(index: index);
+                },
+              ),
             ),
-          ),
-          
-        ],
-      )),
+            SizedBox(
+              width: size.width,
+              height: size.height*.7,
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: 6,
+                itemBuilder: (context, index) {
+                  return HomePageMainCard(size: size,index: index,);
+                },
+              ),
+            ),
+            
+                  ],
+                ),
+          )),
       floatingActionButton: FloatingActionButton(
         backgroundColor: kWhiteColor,
         onPressed: () {
