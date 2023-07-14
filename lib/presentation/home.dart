@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:jiitak/application/controllers/favourite_controller.dart';
 import 'package:jiitak/core/constants.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import 'widgets/days_tab.dart';
 import 'widgets/home_page_main_card.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+   HomeScreen({super.key});
+
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -77,9 +82,9 @@ class HomeScreen extends StatelessWidget {
           ),
           SizedBox(
             width: size.width,
-            height: size.height,
+            height: size.height*.7,
             child: ListView.builder(
-              itemCount: 5,
+              itemCount: 6,
               itemBuilder: (context, index) {
                 return HomePageMainCard(size: size,index: index,);
               },
@@ -93,6 +98,7 @@ class HomeScreen extends StatelessWidget {
         onPressed: () {
         
       },child: Icon(Icons.location_on_outlined,color: kBlackColor,size: 30,),),
+     
     );
   }
 }

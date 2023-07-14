@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jiitak/core/constants.dart';
-import 'package:jiitak/presentation/home.dart';
+
+import 'presentation/bottom_nav_bar.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -15,13 +16,14 @@ class MyApp extends StatelessWidget {
       
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor:  Color(0xFFFAFAFA),
+        primaryColor: const Color(0xFFFAAA14),
+        scaffoldBackgroundColor:  const Color(0xFFFAFAFA),
         appBarTheme: const AppBarTheme(
           backgroundColor: kWhiteColor,
           titleTextStyle: TextStyle(color: kBlackColor,fontSize: 16)
         )
       ),
-      home: const HomeScreen(),
+      home:  const BottomNavBar(),
 
     );
   }

@@ -1,13 +1,18 @@
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:jiitak/core/constants.dart';
 
-class HomePageMainCard extends StatelessWidget {
+import '../../application/controllers/favourite_controller.dart';
 
-  const HomePageMainCard({
+class HomePageMainCard extends StatelessWidget {
+  HomePageMainCard({
     super.key,
-    required this.size, required this.index,
+    required this.size,
+    required this.index,
   });
+
+  final FavouriteController favouriteController =
+      Get.put(FavouriteController());
 
   final Size size;
   final int index;
@@ -56,15 +61,13 @@ class HomePageMainCard extends StatelessWidget {
                           child: Text(
                             '介護有料老人ホームひまわり倶楽部の介護職／ヘルパー求人（パート／バイト）',
                             style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
+                                fontSize: 15, fontWeight: FontWeight.bold),
                           )),
                       const SizedBox(
                         height: 5,
                       ),
                       Row(
-                        mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
                             padding: const EdgeInsets.symmetric(
@@ -76,15 +79,13 @@ class HomePageMainCard extends StatelessWidget {
                             child: const Text(
                               '介護付き有料老人ホーム',
                               style: TextStyle(
-                                  color: Color(0xFFFAAA14),
-                                  fontSize: 14),
+                                  color: Color(0xFFFAAA14), fontSize: 14),
                             ),
                           ),
                           const Text(
                             '¥ 6,000',
                             style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
+                                fontSize: 18, fontWeight: FontWeight.bold),
                           )
                         ],
                       ),
@@ -113,20 +114,26 @@ class HomePageMainCard extends StatelessWidget {
                         height: 5,
                       ),
                       Row(
-                        mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text(
                             '住宅型有料老人ホームひまわり倶楽部',
                             style: TextStyle(color: Colors.grey),
                           ),
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.favorite_border,
-                                color: Colors.grey,
+                          Obx(() => IconButton(
+                              onPressed: () {
+                                favouriteController.toggleFavourite(index);
+                              },
+                              icon: Icon(
+                                favouriteController.isFavouriteList[index]
+                                    ? Icons.favorite
+                                    : Icons.favorite_border,
+                                color:
+                                    favouriteController.isFavouriteList[index]
+                                        ? kRedColor
+                                        : Colors.grey,
                                 size: 30,
-                              ))
+                              )))
                         ],
                       )
                     ],
@@ -136,15 +143,18 @@ class HomePageMainCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: size.width*.43,
-            
-            child: Container(
-            padding: EdgeInsets.symmetric(vertical: 2,horizontal: 8),
-            color: Color(0xFFFF6162),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Text('本日まで',style: TextStyle(fontSize: 12,color: kWhiteColor),),
-            ),))
+              top: size.width * .43,
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+                color: Color(0xFFFF6162),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Text(
+                    '本日まで',
+                    style: TextStyle(fontSize: 12, color: kWhiteColor),
+                  ),
+                ),
+              ))
         ],
       ),
     );
