@@ -271,21 +271,30 @@ class EditStoreProfileScreen extends StatelessWidget {
                       text: '*',
                       style: TextStyle(color: kRedColor, fontSize: 16)),
                 ])),
-                const SizedBox(height: 5,),
+                const SizedBox(
+                  height: 5,
+                ),
                 Row(
                   children: [
                     DropDownWidget(size: size, value: '10:00'),
-                    SizedBox(width: 5,),
-                    Text('~',style: TextStyle(fontSize: 30),),
-                    SizedBox(width: 5,),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    const Text(
+                      '~',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
                     DropDownWidget(size: size, value: '20:00'),
-
-
                   ],
                 )
               ],
             ),
-            SizedBox(height: 15,),
+            const SizedBox(
+              height: 15,
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -298,23 +307,86 @@ class EditStoreProfileScreen extends StatelessWidget {
                       text: '*',
                       style: TextStyle(color: kRedColor, fontSize: 16)),
                 ])),
-                const SizedBox(height: 5,),
+                const SizedBox(
+                  height: 5,
+                ),
                 Row(
                   children: [
                     DropDownWidget(size: size, value: '11:00'),
-                    SizedBox(width: 5,),
-                    Text('~',style: TextStyle(fontSize: 30),),
-                    SizedBox(width: 5,),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    const Text(
+                      '~',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
                     DropDownWidget(size: size, value: '15:00'),
-
-
                   ],
                 )
               ],
-            )
+            ),
+            const SizedBox(height: 15,),
+            RichText(
+                    text: const TextSpan(children: [
+                  TextSpan(
+                      text: '定休日',
+                      style: TextStyle(color: kBlackColor, fontSize: 16)),
+                  TextSpan(
+                      text: '*',
+                      style: TextStyle(color: kRedColor, fontSize: 16)),
+                ])),
+                const Row(
+                  children: [
+                    CheckBox(text: '月',checked: false,),
+                    SizedBox(width: 10,),
+                    CheckBox(text: '火',checked: false,),
+                    SizedBox(width: 10,),
+
+                    CheckBox(text: '水',checked: false,),
+                    SizedBox(width: 10,),
+
+                    CheckBox(text: '木',checked: false,),
+                  ],
+                ),
+                const Row(
+                  children: [
+                    CheckBox(text: '金',checked: false,),
+                    SizedBox(width: 10,),
+                    CheckBox(text: '土',checked: true,),
+                    SizedBox(width: 10,),
+
+                    CheckBox(text: '日',checked: true,),
+                    SizedBox(width: 10,),
+
+                    CheckBox(text: '祝',checked: true,),
+                  ],
+                ),
           ],
         ),
       ),
     );
+  }
+}
+
+class CheckBox extends StatelessWidget {
+  final String text;
+  final bool checked;
+  const CheckBox({
+    super.key, required this.text, required this.checked,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(children: [
+      Checkbox(
+        activeColor:  const Color(0xFFEE7D42),
+        value: checked, onChanged: (value) {
+        
+      },),
+      Text(text,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+    ],);
   }
 }
