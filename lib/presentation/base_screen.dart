@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jiitak/presentation/edit%20store%20profile/edit_store_profile.dart';
 import 'package:jiitak/presentation/home/bottom_nav_bar.dart';
 import 'package:jiitak/presentation/stamp_details_screen/stamp_details.dart';
 
@@ -35,6 +36,18 @@ class BaseScreen extends StatelessWidget {
                     'Stamp details screen',
                     style: TextStyle(fontSize: 20),
                   )),
+                   ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const EditStoreProfileScreen(),
+                    ));
+                  },
+                  child: const Text(
+                    'Edit store profile screen',
+                    style: TextStyle(fontSize: 20),
+                  )),
+                  
+                  
             ],
           ),
         ),
