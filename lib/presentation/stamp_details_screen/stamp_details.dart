@@ -24,7 +24,7 @@ class StampDetailsScreen extends StatelessWidget {
             child: const CircleAvatar(
               backgroundColor: Color(0xFF939EFF),
               child: Icon(
-                Icons.arrow_back_ios_new_rounded,
+                Icons.arrow_back_ios_new_rounded,color: kWhiteColor,
               ),
             ),
           ),
