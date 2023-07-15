@@ -76,3 +76,10 @@ final List days = [
 //stamp screen textstyles
 
 const TextStyle stampScreentextStyle =  TextStyle(fontSize: 16,color: kWhiteColor,fontWeight: FontWeight.bold);
+
+const items = [
+  '10:00',
+  '11:00',
+  '15:00',
+  '20:00'
+];

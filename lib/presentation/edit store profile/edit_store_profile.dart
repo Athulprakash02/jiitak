@@ -175,7 +175,7 @@ class EditStoreProfileScreen extends StatelessWidget {
                 ),
               ],
             ),
-             const SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Row(
@@ -255,6 +255,38 @@ class EditStoreProfileScreen extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(
+              height: 15,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                RichText(
+                    text: const TextSpan(children: [
+                  TextSpan(
+                      text: '営業時間',
+                      style: TextStyle(color: kBlackColor, fontSize: 16)),
+                  TextSpan(
+                      text: '*',
+                      style: TextStyle(color: kRedColor, fontSize: 16)),
+                ])),
+                SizedBox(
+                  width: size.width *.3,
+                  child: DropdownButtonFormField(
+                    value: '10:00',
+                     items:items
+                        .map(
+                          (String items) => DropdownMenuItem(
+                            value: items,
+                            child: Text(items),
+                          ),
+                        )
+                        .toList(), onChanged: (value) {
+                    
+                  },),
+                )
+              ],
+            )
           ],
         ),
       ),
