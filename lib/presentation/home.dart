@@ -59,50 +59,48 @@ class HomeScreen extends StatelessWidget {
               )),
             )),
       ),
-      body: SafeArea(
-          child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 10,
-            ),
-            SizedBox(
-              width: size.width,
-              height: 90,
-              child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: days.length,
-                itemBuilder: (context, index) {
-                  return DaysTab(index: index);
-                },
+      body: Container(
+        height: size.height,
+        width: size.width,
+        child: NestedScrollView(
+          headerSliverBuilder: (context, innerBoxIsScrolled) => [
+            const SliverToBoxAdapter(
+              child: SizedBox(
+                height: 10,
               ),
             ),
-            SizedBox(
-              width: size.width,
-              height: size.height * .7,
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: 6,
-                itemBuilder: (context, index) {
-                  return HomePageMainCard(
-                    size: size,
-                    index: index,
-                  );
-                },
+            SliverToBoxAdapter(
+              child: SizedBox(
+                width: size.width,
+                height: 90,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: days.length,
+                  itemBuilder: (context, index) {
+                    return DaysTab(index: index);
+                  },
+                ),
               ),
             ),
           ],
+          body: ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            itemCount: 6,
+            itemBuilder: (context, index) {
+              return HomePageMainCard(
+                size: size,
+                index: index,
+              );
+            },
+          ),
         ),
-      )),
+      ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: kWhiteColor,
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => StampDetailsScreen(),
-          ));
-        },
-        child: Icon(
+        onPressed: () {},
+        child: const Icon(
           Icons.location_on_outlined,
           color: kBlackColor,
           size: 30,

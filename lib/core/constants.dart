@@ -71,3 +71,8 @@ final List days = [
   '24',
   '25'
 ];
+
+
+//stamp screen textstyles
+
+const TextStyle stampScreentextStyle =  TextStyle(fontSize: 16,color: kWhiteColor,fontWeight: FontWeight.bold);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jiitak/core/constants.dart';
+import 'package:jiitak/presentation/base_screen.dart';
 
 import 'presentation/bottom_nav_bar.dart';
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
           titleTextStyle: TextStyle(color: kBlackColor,fontSize: 16)
         )
       ),
-      home:  const BottomNavBar(),
+      home:  const BaseScreen(),
 
     );
   }
