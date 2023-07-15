@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:jiitak/core/constants.dart';
-import 'package:jiitak/presentation/home.dart';
+import 'package:jiitak/presentation/home/home.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class BottomNavBar extends StatelessWidget {

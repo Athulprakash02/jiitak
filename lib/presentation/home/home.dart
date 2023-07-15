@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jiitak/core/constants.dart';
-import 'package:jiitak/presentation/stamp_details_screen/stamp_details.dart';
 
 import 'widgets/days_tab.dart';
 import 'widgets/home_page_main_card.dart';
@@ -11,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.sizeOf(context);
-    EdgeInsets padding = MediaQuery.paddingOf(context);
+  
     return Scaffold(
       appBar: AppBar(
         title: Container(

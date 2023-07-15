@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiitak/core/constants.dart';
 
-import '../../application/controllers/favourite_controller.dart';
+import '../../../application/controllers/favourite_controller.dart';
 
 class HomePageMainCard extends StatelessWidget {
   HomePageMainCard({

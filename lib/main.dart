@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:jiitak/core/constants.dart';
 import 'package:jiitak/presentation/base_screen.dart';
 
-import 'presentation/bottom_nav_bar.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
