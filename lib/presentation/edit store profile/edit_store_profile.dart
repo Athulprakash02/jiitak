@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jiitak/core/constants.dart';
 import 'package:jiitak/presentation/edit%20store%20profile/widgets/text_feilds.dart';
 
+import 'widgets/checkbox.dart';
 import 'widgets/dropdownwidget.dart';
 import 'widgets/image_card.dart';
 
@@ -128,8 +129,9 @@ class EditStoreProfileScreen extends StatelessWidget {
                         Icon(
                           Icons.image_outlined,
                           size: 30,
+                          color: Colors.grey,
                         ),
-                        Text('写真を追加')
+                        Text('写真を追加',style: TextStyle(color: Colors.grey),)
                       ],
                     ),
                   ),
@@ -328,42 +330,213 @@ class EditStoreProfileScreen extends StatelessWidget {
                 )
               ],
             ),
-            const SizedBox(height: 15,),
+            const SizedBox(
+              height: 15,
+            ),
             RichText(
+                text: const TextSpan(children: [
+              TextSpan(
+                  text: '定休日',
+                  style: TextStyle(color: kBlackColor, fontSize: 16)),
+              TextSpan(
+                  text: '*', style: TextStyle(color: kRedColor, fontSize: 16)),
+            ])),
+            const Row(
+              children: [
+                CheckBox(
+                  text: '月',
+                  checked: false,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                CheckBox(
+                  text: '火',
+                  checked: false,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                CheckBox(
+                  text: '水',
+                  checked: false,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                CheckBox(
+                  text: '木',
+                  checked: false,
+                ),
+              ],
+            ),
+            const Row(
+              children: [
+                CheckBox(
+                  text: '金',
+                  checked: false,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                CheckBox(
+                  text: '土',
+                  checked: true,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                CheckBox(
+                  text: '日',
+                  checked: true,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                CheckBox(
+                  text: '祝',
+                  checked: true,
+                ),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                RichText(
                     text: const TextSpan(children: [
                   TextSpan(
-                      text: '定休日',
+                      text: '料理カテゴリー',
                       style: TextStyle(color: kBlackColor, fontSize: 16)),
                   TextSpan(
                       text: '*',
                       style: TextStyle(color: kRedColor, fontSize: 16)),
                 ])),
-                const Row(
+                SizedBox(
+                  width: size.width * .6,
+                  child: DropdownButtonFormField(
+                    icon: const Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      size: 30,
+                    ),
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide(color: kBlackColor)
+                            // gapPadding: 0
+                            )),
+                    value: '料理カテゴリー選択',
+                    items: itemString
+                        .map(
+                          (String items) => DropdownMenuItem(
+                            value: items,
+                            child: Text(
+                              items,
+                              style: const TextStyle(fontSize: 20),
+                            ),
+                          ),
+                        )
+                        .toList(),
+                    onChanged: (value) {},
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                RichText(
+                    text: const TextSpan(children: [
+                  TextSpan(
+                      text: '予算',
+                      style: TextStyle(color: kBlackColor, fontSize: 16)),
+                  TextSpan(
+                      text: '*',
+                      style: TextStyle(color: kRedColor, fontSize: 16)),
+                ])),
+                Row(
                   children: [
-                    CheckBox(text: '月',checked: false,),
-                    SizedBox(width: 10,),
-                    CheckBox(text: '火',checked: false,),
-                    SizedBox(width: 10,),
-
-                    CheckBox(text: '水',checked: false,),
-                    SizedBox(width: 10,),
-
-                    CheckBox(text: '木',checked: false,),
+                    TextFeildsBottom(size: size, hintText: '¥ 1,000'),
+                    const SizedBox(width: 5,),
+                    const Text('~', style: TextStyle(fontSize: 30),),
+                    const SizedBox(width: 5,),
+                    TextFeildsBottom(size: size, hintText: '¥ 2,000')
                   ],
                 ),
-                const Row(
-                  children: [
-                    CheckBox(text: '金',checked: false,),
-                    SizedBox(width: 10,),
-                    CheckBox(text: '土',checked: true,),
-                    SizedBox(width: 10,),
+                const SizedBox(height: 15,),
+                TextFeilds(title: 'キャッチコピー', hintText: '美味しい！リーズナブルなオムライスランチ！'),
+                const SizedBox(height: 15,),
+                TextFeilds(title: '座席数', hintText: '40席'),
+                const SizedBox(height: 15,),
+                RichText(
+                    text: const TextSpan(children: [
+                  TextSpan(
+                      text: '喫煙席',
+                      style: TextStyle(color: kBlackColor, fontSize: 16)),
+                  TextSpan(
+                      text: '*',
+                      style: TextStyle(color: kRedColor, fontSize: 16)),
+                ])),
+                const Row(children: [
+                  CheckBox(text: '有', checked: true),
+                  SizedBox(width: 15,),
+                  CheckBox(text: '無', checked: false)
+                ],),
+                RichText(
+                    text: const TextSpan(children: [
+                  TextSpan(
+                      text: '駐車場',
+                      style: TextStyle(color: kBlackColor, fontSize: 16)),
+                  TextSpan(
+                      text: '*',
+                      style: TextStyle(color: kRedColor, fontSize: 16)),
+                ])),
+                const Row(children: [
+                  CheckBox(text: '有', checked: true),
+                  SizedBox(width: 15,),
+                  CheckBox(text: '無', checked: false)
+                ],),
+                RichText(
+                    text: const TextSpan(children: [
+                  TextSpan(
+                      text: '来店プレゼント',
+                      style: TextStyle(color: kBlackColor, fontSize: 16)),
+                  TextSpan(
+                      text: '*',
+                      style: TextStyle(color: kRedColor, fontSize: 16)),
+                ])),
+                const Row(children: [
+                  CheckBox(text: '有（最大３枚まで）', checked: true),
+                  SizedBox(width: 15,),
+                  CheckBox(text: '無', checked: false)
+                ],),
+                const SizedBox(height: 15,),
+                Row(children: [
+                  ImageWidget(size: size, imagePath: 'assets/images/icecream.png'),
+                  const SizedBox(width: 8,),
+                  ImageWidget(size: size, imagePath: 'assets/images/tin.png'),
+                   const SizedBox(width: 8,),
+                  ImageWidget(size: size, imagePath: 'assets/images/cocacola.png'),
+                ],),
+                const SizedBox(height: 15,),
+                TextFeilds(title: '来店プレゼント名', hintText: 'いちごクリームアイスクリーム, ジュース'),
+                const SizedBox(height: 40,),
+                Container(
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(colors: [Color(0xFFEE7D42), Color(0xFFFFC7AB)])
+                  ),
+                  child: ElevatedButton(
+                    style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Color(0xFFEE7D42))),
+                    onPressed: () {
+                    
+                  }, child: const Text('編集を保存')),
+                )
 
-                    CheckBox(text: '日',checked: true,),
-                    SizedBox(width: 10,),
 
-                    CheckBox(text: '祝',checked: true,),
-                  ],
-                ),
+              ],
+            )
           ],
         ),
       ),
@@ -371,22 +544,27 @@ class EditStoreProfileScreen extends StatelessWidget {
   }
 }
 
-class CheckBox extends StatelessWidget {
-  final String text;
-  final bool checked;
-  const CheckBox({
-    super.key, required this.text, required this.checked,
+class TextFeildsBottom extends StatelessWidget {
+  final String hintText;
+  const TextFeildsBottom({
+    super.key,
+    required this.size,
+    required this.hintText,
   });
+
+  final Size size;
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
-      Checkbox(
-        activeColor:  const Color(0xFFEE7D42),
-        value: checked, onChanged: (value) {
-        
-      },),
-      Text(text,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
-    ],);
+    return SizedBox(
+      width: size.width * .3,
+      height: 40,
+      child: Center(
+        child: TextField(
+          decoration:
+              InputDecoration(hintText: hintText, border: const OutlineInputBorder()),
+        ),
+      ),
+    );
   }
 }
