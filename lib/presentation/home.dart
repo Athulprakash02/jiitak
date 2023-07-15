@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jiitak/core/constants.dart';
-import 'package:jiitak/presentation/stamp_details.dart';
+import 'package:jiitak/presentation/stamp_details_screen/stamp_details.dart';
 
 import 'widgets/days_tab.dart';
 import 'widgets/home_page_main_card.dart';

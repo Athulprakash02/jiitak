@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jiitak/presentation/bottom_nav_bar.dart';
-import 'package:jiitak/presentation/stamp_details.dart';
+import 'package:jiitak/presentation/stamp_details_screen/stamp_details.dart';
 
 class BaseScreen extends StatelessWidget {
   const BaseScreen({super.key});
