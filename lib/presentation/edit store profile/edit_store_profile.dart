@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jiitak/core/constants.dart';
 import 'package:jiitak/presentation/edit%20store%20profile/widgets/text_feilds.dart';
 
+import 'widgets/dropdownwidget.dart';
 import 'widgets/image_card.dart';
 
 class EditStoreProfileScreen extends StatelessWidget {
@@ -255,7 +256,7 @@ class EditStoreProfileScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Column(
@@ -270,20 +271,44 @@ class EditStoreProfileScreen extends StatelessWidget {
                       text: '*',
                       style: TextStyle(color: kRedColor, fontSize: 16)),
                 ])),
-                SizedBox(
-                  width: size.width *.3,
-                  child: DropdownButtonFormField(
-                    value: '10:00',
-                     items:items
-                        .map(
-                          (String items) => DropdownMenuItem(
-                            value: items,
-                            child: Text(items),
-                          ),
-                        )
-                        .toList(), onChanged: (value) {
-                    
-                  },),
+                const SizedBox(height: 5,),
+                Row(
+                  children: [
+                    DropDownWidget(size: size, value: '10:00'),
+                    SizedBox(width: 5,),
+                    Text('~',style: TextStyle(fontSize: 30),),
+                    SizedBox(width: 5,),
+                    DropDownWidget(size: size, value: '20:00'),
+
+
+                  ],
+                )
+              ],
+            ),
+            SizedBox(height: 15,),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                RichText(
+                    text: const TextSpan(children: [
+                  TextSpan(
+                      text: 'ランチ時間',
+                      style: TextStyle(color: kBlackColor, fontSize: 16)),
+                  TextSpan(
+                      text: '*',
+                      style: TextStyle(color: kRedColor, fontSize: 16)),
+                ])),
+                const SizedBox(height: 5,),
+                Row(
+                  children: [
+                    DropDownWidget(size: size, value: '11:00'),
+                    SizedBox(width: 5,),
+                    Text('~',style: TextStyle(fontSize: 30),),
+                    SizedBox(width: 5,),
+                    DropDownWidget(size: size, value: '15:00'),
+
+
+                  ],
                 )
               ],
             )
